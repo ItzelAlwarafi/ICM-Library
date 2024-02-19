@@ -13,30 +13,18 @@ body {
   #main > article {
     flex: 1;
   }
-  
+  .bookGroup{
+    display: flex;
+    flex-direction: row;
+  }
   #main > nav,
   #main > aside {
     flex: 0 0 20vw;
   }
-  #booksContainer1{
-    display: flex
+  #dataContainer{
+  padding: 20px;
   }
-  #booksContainer2{
-    display: flex
-  }
-  .Book {
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-}
-
-.Book ul {
-    margin-right: 10px; /* Add margin between text and image */
-}
-
-.bookImage {
-    width: auto; /* Adjust image size as needed */
-    height: 100px; /* Adjust image size as needed */
-}
+  
   #main > nav {
     order: -1;
   }
@@ -83,68 +71,22 @@ body {
     background-color:#d3d0bb;
     color: #635B29;
   }
-  article {
-    display: flex;
-    flex-direction: column
-  }
+  
   
   img{
     width: auto;
-    height: 95px;
+    height:150px;
     border: 1px black;
-  }
-  #menulinks{
-    display: flex;
-    flex-direction: row;
-  }
-#menulinks> ul{
-    margin-left: 1em;
-    height: 130px;
-    width: 150px;
-    background-color: #d3d0bb;
-    color:#635B29;
-    font-weight: bolder;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    align-items:center; 
-    text-align:justify;
-    margin-right: 3em;
-    font-size:20px;
-
-}
-#menulinks> ul:hover{
-    background-color: #635B29;
-    opacity: .5;
-    color: #e5e1c5;
-}
-
-#bookStatus {
-    display: flex;
-    flex-direction: row;
-}
-#bookStatus> ul{
-    margin-left: 1em;
-    height: 100px;
-    width: 150px;
-    background-color: #d3d0bb;
-    color:#635B29;
-    font-weight: bolder;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    align-items:center; 
-    margin-right: 3em;
-    font-size:20px;
-    
-
-}
-#bookStatus> ul:hover{
-     background-color: #635B29;
-    opacity: .5;
-    color: #e5e1c5;
-}
   
+    
+  }
+  #title{
+    font-size:20px;
+    font-weight: bold;
+   
+   
+  }
+
   footer {
     background: #918c69;
     height: .1vh;

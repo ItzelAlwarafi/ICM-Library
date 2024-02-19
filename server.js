@@ -29,7 +29,7 @@ app.put('/authors/:id',authorsControllers.updateAuthor)
 app.delete('/authors/:id',authorsControllers.deleteAuthor)
 // books
 
-//app.delete('/books',booksControllers.deleteAllBooks)
+app.delete('/books',booksControllers.deleteAllBooks)
 app.get('/books',booksControllers.  getAllBooks)
 app.get('/books/:name',booksControllers.getBooksByName)
 app.post('/book', booksControllers.createBook)
