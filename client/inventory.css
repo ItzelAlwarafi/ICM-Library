@@ -18,7 +18,25 @@ body {
   #main > aside {
     flex: 0 0 20vw;
   }
-  
+  #booksContainer1{
+    display: flex
+  }
+  #booksContainer2{
+    display: flex
+  }
+  .Book {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+}
+
+.Book ul {
+    margin-right: 10px; /* Add margin between text and image */
+}
+
+.bookImage {
+    width: auto; /* Adjust image size as needed */
+    height: 100px; /* Adjust image size as needed */
+}
   #main > nav {
     order: -1;
   }
@@ -73,6 +91,7 @@ body {
   img{
     width: auto;
     height: 95px;
+    border: 1px black;
   }
   #menulinks{
     display: flex;
@@ -137,7 +156,7 @@ body {
     
   }
  
- a{
+  a{
     height: 35px;
     width: 200px;
     background-color: #d3d0bb;
@@ -165,7 +184,6 @@ body {
     color:#e5e1c5;
     margin: 0.2em;
   }
-
 /* For tablet screen size */
 @media only screen and (max-width: 768px) {
     body {
@@ -174,39 +192,7 @@ body {
       min-height: 100vh;
       margin: 0;
     }
-    nav{
-     padding-left: 0;
-    }
-    a{
-      height: 25px;
-      width: 100px;
-      background-color: #d3d0bb;
-      font-weight: bolder;
-      border-radius: 6px;
-      display: flex;
-      align-items: center; 
-      text-align:right;
-      margin: 0.2em;
-      text-decoration: none;
-      color:#635B29;
-      
-    }
-   
-    a:hover{
-      text-decoration: none;
-      color:#e9e6cc;
   
-      height: 25px;
-      width: 100px;
-      background-color:#635B29;
-      font-weight: bolder;
-      border-radius: 6px;
-      display: flex;
-      align-items: center; 
-      text-align:justify;
-      margin: 0.2em;;
-      
-    }
     header {
       height: 10vh; /* Adjust header height for tablet */
     }
@@ -214,47 +200,40 @@ body {
     header > #searchBar {
       width: 250px; /* Adjust search bar width for tablet */
     }
-  article{
-    display: flex;
-    flex-direction:row
-
-  }
-    #menulinks > ul{
-        height: 55px;
-        width: 60px; 
-        font-size: 14px;
-        margin-bottom: 20px; 
-       
-
-  
-    }
-    #bookStatus > ul {
-      height: 60px; 
-      width: 60px; 
-      font-size: 15px;
-     
-       
-}
-
-
-    
-    p{
-        font-size: 20px;
-        margin: 0;
-    }
-  img{
-    width: auto;
-    height: 25px;
-  }
-    #menulinks,
-    #bookStatus {
-      flex-direction: column;
-    }
-  
+ 
     footer {
-      height: 3vh; /
+      height: 3vh; /* Adjust footer height for tablet */
     }
   
+    a{
+      height: 15px;
+      width: 90px;
+      background-color: #d3d0bb;
+      font-weight: bolder;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      text-decoration: none;
+      color: #635B29;
+      margin: 0.2em;
+      
+    }
+   
+    a:hover{
+      height: 15px;
+      width: 90px;
+      background-color:#635B29;
+      font-weight: bolder;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      text-decoration: none;
+      color:#e5e1c5;
+      margin: 0.2em;
+    }
    
   }
+
   
