@@ -34,7 +34,9 @@ const getBooksByName = async (req, res) => {
 
 const createBook = async(req,res) =>{
     try{
+        console.log(req.body)
         const book =await new Books(req.body)
+        console.log(book)
         await book.save()
         return res.status(201).json({
             book,

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Transactions.css">
+    <title>ICM Library</title>
+</head>
+<body>
+    <header> <input type="text" id="searchBar" placeholder="Search.."> <input type="button" id='searchbtn'   value="Search Inventory"> </header>
+    <div id="main">
+        <article>
+
+           
+    <div id=' transactions'> 
+                <div id="ActionContainer" class="ActionContainer">
+                    <a href="#addBook" id="addBook" > Add Book </a>
+                    <a href="#delete" id="deleteBook">Delete Book</a>
+                    <a href ="#loanBook" id="loanBook">Loan Book</a>
+                    <a href ='#returnBook' id="returnBook">Return</a>
+                </div>
+                <div id="actionBox">
+
+                </div>
+
+     </div>
+
+             
+           <div id="addbookform">
+
+            <input  class="Addbook" id="titlebox" type="text" placeholder="Book Title ..." >
+            <input class="Addbook"id="authorbox" type ='text' placeholder="Book Author...">
+            <input class="Addbook" id="publisherbox" type="text" placeholder="Book Publisher..">
+            <input class="Addbook" id="imagebox" type="text" placeholder="Book Image src...">
+            <button type="submit" id="Addbookbtn" > Submit</button>
+
+           </div>
+            
+                         
+                
+            
+           
+            </article>
+        <nav>
+            
+             <a href='/client/index.html'>   Dashboard</a> 
+             <a href="/client/inventory.html">Inventory</a>  
+            <a href="/client/Transactions.html">Transactions </a>
+            <a href="/client/members.html">Members</a>
+             
+        </nav>
+        <Aside> 
+            <div  id="booksContainer"></div>
+
+        </Aside>
+    </div>
+
+
+
+
+
+
+
+<footer> CopyRights 2024. All Rights Reserved </footer>
+
+   
+    <script type="text/javascript" src="Transactions.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>

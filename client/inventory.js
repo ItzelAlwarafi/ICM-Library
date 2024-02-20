@@ -11,14 +11,14 @@ document.addEventListener('DOMContentLoaded', function () {
     Promise.all([fetchBooks, fetchAuthors])
         .then(([booksData, authorsData]) => {
             // Store books data
-            const books = booksData;
+            const books = booksData
 
             // Add event listener for search input
             const searchInput = document.querySelector('#searchBar')
             searchInput.addEventListener('input', e => {
                 const searchQuery = e.target.value.trim().toLowerCase()
                 filterBooks(searchQuery)
-            });
+            })
 
             // Display books initially
             const groupContainer = document.getElementById('dataContainer')
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 books.forEach(book => {
                     const isVisible = book.title.toLowerCase().includes(searchQuery) ||
                         authorsData.find(author => author._id === book.author)?.name.toLowerCase().includes(searchQuery)
-                    book.element.style.display = isVisible ? 'block' : 'none'
+                    book.element.style.display = isVisible ? 'inline-block' : 'none'
                 })
             }
         })

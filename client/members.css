@@ -21,17 +21,11 @@ body {
 #main > aside {
   flex: 0 0 20vw;
 }
-#dataContainer{
-padding: 20px;
-}
 
 #main > nav {
   order: -1;
 }
-p{
-  font-size: 30px;
-  color:#918c69;
-}
+
 header,
 footer,
 article,
@@ -75,16 +69,56 @@ header> #searchbtn:hover{
 
 img{
   width: auto;
-  height:150px;
+  height:100px;
   border: 1px black;
+  margin-left: 2em;
 
   
 }
 #title{
-  font-size:20px;
+  font: size 15px;
   font-weight: bold;
+  margin: 1;
  
  
+}
+#CreateNewMemberContainer{
+ margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ flex-direction: column;
+ 
+
+}
+#btnadd{
+  width: 12px;
+  height: 2px;
+
+}
+.book{
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
+#booksContainer{
+  width: 50vh;
+  height: fit-content;
+
+}
+.CreateMembr{
+  width: 35em;
+  height: 2em;
+  margin: .5em;
+  margin-left: 2em;
+}
+#createMemberbtn{
+ width: 6em;
+ height: 2em;
+ border-radius: 10px ;
+
+
 }
 
 footer {

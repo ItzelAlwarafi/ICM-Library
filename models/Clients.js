@@ -3,10 +3,10 @@ const  { Schema } = require('mongoose')
 
 const clientSchema = new Schema(
     {
-        title: { type: String, required: true },
-        author: {type:Schema.Types.ObjectId, ref:'Authors_id'},
-        publisher:{ type: String, required: true },
-        image: { type: String, required: true },
+        name: { type: String, required: true },
+        phone_number: {type:Number,require:true},
+        email:{ type: String, required: true },
+        Books:[{type:Schema.Types.ObjectId,ref:'Books_id'}]
     },
     { timestamps: true },
 )

@@ -1,59 +1,31 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /* Set minimum height of the body to full viewport height */
     margin: 0;
   }
   
   #main {
-    flex: 1; 
+    flex: 1; /* Make the main content area flexible to occupy remaining space */
     display: flex;
   }
   
   #main > article {
     flex: 1;
   }
-  .book {
-    width: 200px;
-    margin: 10px;
-    padding: 5px; 
-    display: inline-block; 
-    vertical-align: top;
-}
-#bookdiv{
-  column-count: 1; 
-  column-gap: 20px; 
-}
-ul{
-  white-space: nowrap;
-  font-size: 10px;
-
-}
-
-#img{
-  width: auto;
-  height: 150px;
-  border: 1px black;
- margin-left: 50px;
-  
-  
-}
-#title{
-  font-size:15px;
-  font-weight: bold;
- 
- 
-}
+  .bookGroup{
+    display: flex;
+    flex-direction: row;
+  }
   #main > nav,
   #main > aside {
-    flex: 0 0 10vw;
+    flex: 0 0 20vw;
   }
- 
   
   #main > nav {
     order: -1;
   }
- 
+  
   header,
   footer,
   article,
@@ -86,7 +58,7 @@ ul{
     color: #3c3a23;
     font-weight: bold;
    
-
+  
   }
   header> #searchbtn:hover{
     
@@ -94,8 +66,61 @@ ul{
     color: #635B29;
   }
   
- 
-
+  
+  img{
+    width: auto;
+    height:100px;
+    border: 1px black;
+    margin-left: 2em;
+  
+    
+  }
+  #title{
+    font: size 15px;
+    font-weight: bold;
+    margin: 1;
+   
+   
+  }
+  #CreateNewMemberContainer{
+   margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   flex-direction: column;
+   
+  
+  }
+  #btnadd{
+    width: 12px;
+    height: 2px;
+  
+  }
+  .book{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+  }
+  #booksContainer{
+    width: 50vh;
+    height: fit-content;
+  
+  }
+  .CreateMembr{
+    width: 35em;
+    height: 2em;
+    margin: .5em;
+    margin-left: 2em;
+  }
+  #createMemberbtn{
+   width: 6em;
+   height: 2em;
+   border-radius: 10px ;
+  
+  
+  }
+  
   footer {
     background: #918c69;
     height: .1vh;
@@ -106,8 +131,8 @@ ul{
     text-align:justify;
     
   }
- 
- a{
+  
+  a{
     height: 35px;
     width: 200px;
     background-color: #d3d0bb;
@@ -119,10 +144,9 @@ ul{
     text-decoration: none;
     color: #635B29;
     margin: 0.2em;
-    font-size: 15px;
     
   }
- 
+  
   a:hover{
     height: 35px;
     width: 200px;
@@ -136,64 +160,71 @@ ul{
     color:#e5e1c5;
     margin: 0.2em;
   }
-/* For tablet screen size */
-@media only screen and (max-width: 768px) {
+
+
+
+
+  /*    drop down */  
+
+#transactions{
+ display: flex;
+ flex-direction: row;
+
+}
+#ActionContainer{
+    display: flex;
+ flex-direction: row;
+ background-color: #918c69;
+ width: auto;
+ 
+}
+#ActionContainer > a {
+  border-radius: 0;
+  
+    
+}
+#addbookform{
+  display:flex;
+  flex-direction: column;
+  background-color: #918c69;
+  width: 35em;
+  height: 15em;
+  
+}
+
+#addbookform > input{
+  width: 450px;
+  height: 30px;
+  display: flex;
+  align-self: center;
+  margin: 6px;
+  padding-top: 6px;
+}
+#addbookform > button{
+  display: flex;
+  align-self: center;
+  width: 10em;
+ 
+  
+
+}
+  /* For tablet screen size */
+  @media only screen and (max-width: 768px) {
     body {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
       margin: 0;
     }
-    header,
-    footer,
-    article,
-    nav,
-    aside {
-      padding: 0;
-    }
-    img{
-      width: auto;
-      height:90px;
-      border: 1px black;
-    
-      
-    }
-    .book {
-      width: 200px;
-      margin: 10px;
-      padding: 10px; 
-     
-  }
- 
-  #dataContainer {
-      column-count: 3; 
-      column-gap: 20px; 
-  }
-    #title{
-      font-size:15px;
-      font-weight: bold;
-     
-     
-    }
+  
     header {
       height: 10vh; /* Adjust header height for tablet */
     }
   
     header > #searchBar {
-      width: 150px;
-      height: 25px;
+      width: 250px; /* Adjust search bar width for tablet */
     }
-    header> #searchbtn{
-      height: 25px;
-      align-self: flex-end;
-      border-radius: 10px;
-      margin-left: 10px;
-      background-color:#cbc6a1;
-      color: #3c3a23;
-      font-weight: bold;
-     
   
-    }
     footer {
       height: 3vh; /* Adjust footer height for tablet */
     }
@@ -210,7 +241,6 @@ ul{
       text-decoration: none;
       color: #635B29;
       margin: 0.2em;
-      font-size: 12px;
       
     }
    
@@ -229,5 +259,5 @@ ul{
     }
    
   }
-
+  
   

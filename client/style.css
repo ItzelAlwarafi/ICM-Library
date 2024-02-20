@@ -22,10 +22,7 @@ body {
   #main > nav {
     order: -1;
   }
-  p{
-    font-size: 30px;
-    color:#918c69;
-  }
+ 
   header,
   footer,
   article,
@@ -156,6 +153,7 @@ body {
     text-decoration: none;
     color: #635B29;
     margin: 0.2em;
+    font-size: 20px;
     
   }
  
