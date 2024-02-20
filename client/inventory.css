@@ -1,37 +1,58 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Set minimum height of the body to full viewport height */
+    min-height: 100vh;
     margin: 0;
   }
   
   #main {
-    flex: 1; /* Make the main content area flexible to occupy remaining space */
+    flex: 1; 
     display: flex;
   }
   
   #main > article {
     flex: 1;
   }
-  .bookGroup{
-    display: flex;
-    flex-direction: row;
-  }
+  .book {
+    width: 200px;
+    margin: 10px;
+    padding: 5px; 
+    display: inline-block; 
+    vertical-align: top;
+}
+#bookdiv{
+  column-count: 1; 
+  column-gap: 20px; 
+}
+ul{
+  white-space: nowrap;
+  font-size: 10px;
+
+}
+#img{
+  width: auto;
+  height: 150px;
+  border: 1px black;
+ margin-left: 50px;
+  
+  
+}
+#title{
+  font-size:15px;
+  font-weight: bold;
+ 
+ 
+}
   #main > nav,
   #main > aside {
-    flex: 0 0 20vw;
+    flex: 0 0 10vw;
   }
-  #dataContainer{
-  padding: 20px;
-  }
+ 
   
   #main > nav {
     order: -1;
   }
-  p{
-    font-size: 30px;
-    color:#918c69;
-  }
+ 
   header,
   footer,
   article,
@@ -72,20 +93,7 @@ body {
     color: #635B29;
   }
   
-  
-  img{
-    width: auto;
-    height:150px;
-    border: 1px black;
-  
-    
-  }
-  #title{
-    font-size:20px;
-    font-weight: bold;
-   
-   
-  }
+ 
 
   footer {
     background: #918c69;
@@ -134,15 +142,56 @@ body {
       min-height: 100vh;
       margin: 0;
     }
-  
+    header,
+    footer,
+    article,
+    nav,
+    aside {
+      padding: 0;
+    }
+    img{
+      width: auto;
+      height:90px;
+      border: 1px black;
+    
+      
+    }
+    .book {
+      width: 200px;
+      margin: 10px;
+      padding: 10px; 
+     
+  }
+ 
+  #dataContainer {
+      column-count: 3; 
+      column-gap: 20px; 
+  }
+    #title{
+      font-size:15px;
+      font-weight: bold;
+     
+     
+    }
     header {
       height: 10vh; /* Adjust header height for tablet */
     }
   
     header > #searchBar {
-      width: 250px; /* Adjust search bar width for tablet */
+      width: 150px;
+      height: 25px;
     }
- 
+    header> #searchbtn{
+      height: 25px;
+      align-self: flex-end;
+      border-radius: 10px;
+      margin-left: 10px;
+      background-color:#cbc6a1;
+      color: #3c3a23;
+      font-weight: bold;
+     
+  
+    }
     footer {
       height: 3vh; /* Adjust footer height for tablet */
     }
@@ -159,6 +208,7 @@ body {
       text-decoration: none;
       color: #635B29;
       margin: 0.2em;
+      font-size: 12px;
       
     }
    

@@ -35,7 +35,7 @@ body {
   }
   a{
     text-decoration: none;
-    color:#635B29;
+    
   }
   a:hover{
     text-decoration: none;
@@ -77,18 +77,18 @@ body {
     flex-direction: column
   }
   
-  img{
+  a >img{
     width: auto;
-    height: 95px;
+    height: 90px;
   }
   #menulinks{
     display: flex;
     flex-direction: row;
   }
-#menulinks> ul{
+#menulinks> a{
     margin-left: 1em;
     height: 130px;
-    width: 150px;
+    width: 170px;
     background-color: #d3d0bb;
     color:#635B29;
     font-weight: bolder;
@@ -101,7 +101,7 @@ body {
     font-size:20px;
 
 }
-#menulinks> ul:hover{
+#menulinks> a:hover{
     background-color: #635B29;
     opacity: .5;
     color: #e5e1c5;
@@ -114,7 +114,7 @@ body {
 #bookStatus> ul{
     margin-left: 1em;
     height: 100px;
-    width: 150px;
+    width: 130px;
     background-color: #d3d0bb;
     color:#635B29;
     font-weight: bolder;
@@ -226,7 +226,7 @@ body {
     flex-direction:row
 
   }
-    #menulinks > ul{
+    #menulinks > a{
         height: 55px;
         width: 60px; 
         font-size: 14px;
@@ -249,7 +249,7 @@ body {
         font-size: 20px;
         margin: 0;
     }
-  img{
+  a >img{
     width: auto;
     height: 25px;
   }
