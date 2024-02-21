@@ -21,6 +21,8 @@ const booksList =[
    {     title:'Meeting Muhammad',
          author:omarSuleiman[0]._id,
          publisher:'Kube Plublishing',
+         quantity:10,
+         loanOut:0,
          img: "../images/Meeting-Muhammad.webp" ,
     },
     {    title:'Prayers of the Pious',
@@ -34,12 +36,16 @@ const booksList =[
         title:'Fortress of the Muslim',
         author:saidQahtani[0]._id,
         publisher:'Darusalam',
+        quantity:10,
+        loanOut:0,
         img:"../images/fortress.jpg"
     },
     {
         title:'The Heights of Success',
         author:syedAhmed[0]._id,
         publisher:'Darusalam',
+        quantity:10,
+        loanOut:0,
         img:'../images/The_Heights_Of_Success_1.jpeg'
 
     },

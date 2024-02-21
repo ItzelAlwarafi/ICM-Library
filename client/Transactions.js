@@ -1,18 +1,27 @@
 
-
+const booksContainer = document.getElementById('dataContainer')
 const addBookBtn = document.getElementById('addBook')
 const addbookform = document.getElementById('addbookform')
 const summitBookBtn = document.getElementById('Addbookbtn')
+const searchBookBtn = document.getElementById('#searchBooklink')
 
 const titlebox = document.getElementById('titlebox')
 const authorbox = document.getElementById('authorbox')
 const publisherbox = document.getElementById('publisherbox')
 const imagebox = document.getElementById('imagebox')
+const qtybox = document.getElementById('Quantitybox')
+
 
 addBookBtn.addEventListener('click',async () => {
     addbookform.style.display = "flex"
     deleteBookform.style.display = 'none'
+    groupContainer.style.display ='none'
 })
+
+
+
+
+
 
 summitBookBtn.addEventListener('click', async () => {
    try{
@@ -20,6 +29,7 @@ summitBookBtn.addEventListener('click', async () => {
     const title = titlebox.value.toLowerCase()
     const author = authorbox.value
     const publisher = publisherbox.value.toLowerCase()
+    const quantity = qtybox.value
     const img = imagebox.value.toLowerCase()
 
 console.log(author)
@@ -36,6 +46,7 @@ if (authroData.length >0){
         title,
         author:authorId, 
         publisher,
+        quantity,
         img
     })
 
@@ -67,16 +78,25 @@ if (authroData.length >0){
       }
 
     })
-/* delete book */
 
-    const deleteBookBtn = document.getElementById('deleteBook')
-    const deleteBookform = document.getElementById('deleteBookform')
+    function clearInputs() {
+        titlebox.value = ''
+        authorbox.value = ''
+        publisherbox.value = ''
+        imagebox.value = ''
+        qtybox.value = ''
+    }
 
-    deleteBookBtn.addEventListener('click', async () =>{
-        addbookform.style.display = "none"
-        deleteBookform.style.display = 'flex'
+/* search / delete book */
 
-    })
+const deleteBookBtn = document.getElementById('deleteBook')
+const deleteBookform = document.getElementById('deleteBookform')
+
+deleteBookBtn.addEventListener('click', async () =>{
+    addbookform.style.display = "none"
+    deleteBookform.style.display = 'flex'
+
+})
 
 
     const fetchBooks = fetch('http://localhost:3001/books')
@@ -107,11 +127,13 @@ Promise.all([fetchBooks, fetchAuthors])
                 const author = document.createElement('ul')
                 const publisher = document.createElement('ul')
                 const image = document.createElement('img')
+                const delbtn = document.createElement('button')
+                delbtn.innerText ='Delete'
 
                 // Assigning data to the HTML elements
-                title.textContent = `Title: ${book.title}`
+                title.textContent = ` ${book.title}`
                 author.textContent = `Author: ${authorsData.find(author => author._id === book.author)?.name || 'Unknown'}`
-                publisher.textContent = `Publisher: ${book.publisher}`
+                publisher.textContent = `Publisher : ${book.publisher}`
                 image.src = book.img
 
                 // Append HTML elements to the container
@@ -119,18 +141,19 @@ Promise.all([fetchBooks, fetchAuthors])
                 bookDiv.appendChild(author)
                 bookDiv.appendChild(publisher)
                 bookDiv.appendChild(image)
-
+                bookDiv.appendChild(delbtn)
                 // Append the book container to the group container
                 bookDiv.classList.add('book') // Use a class for styling
                 groupContainer.appendChild(bookDiv)
-                
+
                 bookDiv.id ='bookdiv'
                  image.id = 'img'
                 title.id = 'title'
+                delbtn.id = 'delbtn'
                 // Store a reference to the book element for easy access during search
                 book.element = bookDiv
 
-                image.addEventListener('click', async () => {
+                delbtn.addEventListener('click', async () => {
                     const confirmation = window.confirm('Are you sure you want to delete this book?');
                     if (confirmation) {
                         const bookId = book._id
@@ -170,10 +193,4 @@ Promise.all([fetchBooks, fetchAuthors])
         })
 
 
-    function clearInputs() {
-        titlebox.value = ''
-        authorbox.value = ''
-        publisherbox.value = ''
-        imagebox.value = ''
-    }
-
+    

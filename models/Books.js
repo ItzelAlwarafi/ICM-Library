@@ -5,7 +5,9 @@ const bookSchema = new Schema(
     {
         title: { type: String, required: true },
         author: {type:Schema.Types.ObjectId, ref:'Authors_id'},
-        publisher:{ type: String, required: false },
+        publisher:{ type: String, required: true },
+        quantity:{type:Number,requiered:true},
+        loanOut:{type:Number,require: false},
         img: { type: String, required: true },
     },
     { timestamps: true },

@@ -15,7 +15,7 @@ body {
   }
   #deleteBookform{
 
-    display: none;
+    display: flex;
     flex-direction: column;
     align-content:center; 
 
@@ -31,7 +31,37 @@ body {
     width: fit-content;
     height: fit-content;
   }
-
+#delbtn{
+  display: flex;
+  margin-left: 30px;
+  margin-top: 10px;
+  border-radius: 0;
+  appearance: button;
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, #fff, #f8eedb);
+  border: 0 solid #e5e7eb;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #482307;
+  column-gap: 1rem;
+  cursor: pointer;
+  display: flex;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 15px;;
+  font-weight: bold;
+  line-height: 24px;
+  margin: 1;
+  outline: 2px solid transparent;
+  
+  text-align: center;
+  text-transform: none;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: -6px 8px 10px rgba(81,41,10,0.1),0px 2px 2px rgba(81,41,10,0.2);
+  
+}
 
   #deleteBookform >button{
 width: fit-content;
@@ -49,25 +79,33 @@ align-self: center;
 }
 .book {
   width: 20%; 
-  margin: 10px; 
+  margin: 30px; 
 }
 
 ul{
  margin: 0;
- font-size: 12px;
+ font-size: 15px;
+ white-space: nowrap; /* Prevent text from wrapping onto multiple lines */
+ overflow: hidden; /* Hide any overflowing text */
+ text-overflow: ellipsis;
+
 }
 img{
   width: auto;
-  height:100px;
+  height:180px;
   border: 1px black;
   margin-left: 2em;
 display: flex;
+margin-top: 10px;
 
   
 }
 #title{
-  font-size: 15px;
+  font-size: 18px;
   font-weight: bold;
+  white-space: nowrap; /* Prevent text from wrapping onto multiple lines */
+    overflow: hidden; /* Hide any overflowing text */
+    text-overflow: ellipsis;
  
 }
 
@@ -276,9 +314,9 @@ display: flex;
 #addbookform{
   display:none;
   flex-direction: column;
- 
   width: 35em;
   height: 15em;
+  margin-left: 5em;
   
 }
 
@@ -289,13 +327,40 @@ display: flex;
   align-self: center;
   margin: 6px;
   padding-top: 6px;
+ 
 
 }
 #addbookform > button{
   display: flex;
   align-self: center;
   width: 10em;
- 
+  margin-left: 30px;
+  margin-top: 10px;
+  border-radius: 0;
+  appearance: button;
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, #fff, #f8eedb);
+  border: 0 solid #e5e7eb;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #482307;
+  column-gap: 1rem;
+  cursor: pointer;
+  display: flex;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 15px;;
+  font-weight: bold;
+  line-height: 24px;
+  margin: 1;
+  outline: 2px solid transparent;
+  text-align: center;
+  text-transform: none;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: -6px 8px 10px rgba(81,41,10,0.1),0px 2px 2px rgba(81,41,10,0.2);
+  
   
 
 }
