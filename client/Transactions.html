@@ -4,75 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="Transactions.css">
+
     <title>ICM Library</title>
 </head>
 <body>
     <header>  </header>
     <div id="main">
-        <article>  
-                 <div id=' transactions'> 
-                    <div id="ActionContainer" class="ActionContainer">
-                    <a href ="" id="deleteBook" >Search</a>
-                    <a href="#addBook" id="addBook" > Add Book </a>
-                    <a href="/client/loanabook.html" id="loanBook">Loan Book</a>
-                    <a href ='#returnBook' id="returnBook">Return</a>
-                     </div>
+        <article>
+            <div id='transactions'> 
+                <div id="ActionContainer" >
+                <a href ="" id="searchbtn" >Search</a>
+                <a href="" id="addBook" > Add Book </a>
+                <a href="" id="loanBook">Loan Book</a>
+                <a href ='' id="returnBook">Return</a>
+            </div>
+         
+            
 
-                <div id="actionBox"> </div>
+         <div id="contentBox"> 
+            <input type="text" id="searchBar" placeholder="Search.."> 
+            <div id="dataContainer"> </div>
 
-     
+
+            <div id="cont1">
+                 <div id="borrowBookForm">
+                    <input class="Addbook" id="memberNamebox" type="text" placeholder="Member Name...">
+                    <input class="Addbook" id="bookbox" type="text" placeholder="Book Title...">
+                   
+                    <div id="dateboxCont">
+                      <p> Checkout Date :  <input class="datebox" id="dateLoanbox" type="date" placeholder="Date Checking Out..."> </p>
+                       </div>
+                       <div id="dateboxCont">
+                        <p> Returning Date : <input class="datebox" id="dateReturnbox" type="date" placeholder="Returning Date  ..."> </p>
+                         </div>
+                    <button type="submit" id="borrowBtn" > Submit</button>
+                  </div>  
+                  
+                  <div id="bookContainer1"></div>
+
+            </div>
+             
+                  
+                <div id="cont">
 
              
-           <div id="addbookform">
+                  <div id="addbookform">
+                    
+                    <input  class="Addbook" id="titlebox" type="text"  placeholder="Book Title ..." > 
+                    <input class="Addbook"id="authorbox" type ='text' placeholder="Book Author...">
+                    <input class="Addbook" id="publisherbox" type="text" placeholder="Book Publisher..">
+                    <input class="Addbook" id="imagebox" type="text" placeholder="Book Image src...">
+                    <input class="Addbook" id="Quantitybox" type="text" placeholder="Quantity...">
+                    <button type="submit" id="Addbookbtn" > Submit</button>
+    
+                   </div>
 
-            <input  class="Addbook" id="titlebox" type="text" placeholder="Book Title ..." >
-            <input class="Addbook"id="authorbox" type ='text' placeholder="Book Author...">
-            <input class="Addbook" id="publisherbox" type="text" placeholder="Book Publisher..">
-            <input class="Addbook" id="imagebox" type="text" placeholder="Book Image src...">
-            <input class="Addbook" id="Quantitybox" type="text" placeholder="Quantity...">
-            <button type="submit" id="Addbookbtn" > Submit</button>
-
-           </div>
+                   <div id="bookContainer"></div>
+                </div>
+            </div>  
             
-         
-
-          
-
-           
-                <input type="text" id="searchBar" placeholder="Search.."> 
-                <div id="dataContainer"></div>
-           
-
-                     
-                
             
-           
-     </article>
-        
+            
+    </article>
             <nav>
-             <a href='/client/index.html'>   Dashboard</a> 
-            <a href="/client/Transactions.html">Transactions </a>
-            <a href="/client/members.html">Members</a>
-             </nav>
-
-   
-        <Aside> 
+                <ul> 
+                    <a href='/client/index.html'>   Dashboard</a> 
+                    <a href="/client/Transactions.html">Transactions </a>
+                    <a href="/client/members.html">Members</a>
+                </ul>
+               
+           </nav>
            
-
-        </Aside>
     </div>
 
 
 
-
-
-
-
 <footer> CopyRights 2024. All Rights Reserved </footer>
-
-   
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="Transactions.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
 </body>
 
 </html>
