@@ -1,5 +1,4 @@
-
-const booksContainer = document.getElementById('dataContainer')
+const groupContainer = document.getElementById('dataContainer')
 const addBookBtn = document.getElementById('addBook')
 const addbookform = document.getElementById('addbookform')
 const summitBookBtn = document.getElementById('Addbookbtn')
@@ -14,14 +13,9 @@ const qtybox = document.getElementById('Quantitybox')
 
 addBookBtn.addEventListener('click',async () => {
     addbookform.style.display = "flex"
-    deleteBookform.style.display = 'none'
     groupContainer.style.display ='none'
+    
 })
-
-
-
-
-
 
 summitBookBtn.addEventListener('click', async () => {
    try{
@@ -79,7 +73,7 @@ if (authroData.length >0){
 
     })
 
-    function clearInputs() {
+function clearInputs() {
         titlebox.value = ''
         authorbox.value = ''
         publisherbox.value = ''
@@ -88,17 +82,6 @@ if (authroData.length >0){
     }
 
 /* search / delete book */
-
-const deleteBookBtn = document.getElementById('deleteBook')
-const deleteBookform = document.getElementById('deleteBookform')
-
-deleteBookBtn.addEventListener('click', async () =>{
-    addbookform.style.display = "none"
-    deleteBookform.style.display = 'flex'
-
-})
-
-
     const fetchBooks = fetch('http://localhost:3001/books')
     .then(response => response.json())
 
@@ -113,13 +96,14 @@ Promise.all([fetchBooks, fetchAuthors])
         const books = booksData
 
         const searchbox = document.getElementById('searchBar')
+     
 
-        searchbox.addEventListener('input', e => {
+        searchbox.addEventListener('input', e => {  
             const searchQuery = e.target.value.trim().toLowerCase()
             filterBooks(searchQuery)
         })
 
-            const groupContainer = document.getElementById('dataContainer')
+           
             books.forEach(book => {
                 // Creating HTML elements
                 const bookDiv = document.createElement('div')
@@ -182,7 +166,7 @@ Promise.all([fetchBooks, fetchAuthors])
                 books.forEach(book => {
                     const isVisible = book.title.toLowerCase().includes(searchQuery) ||
                         authorsData.find(author => author._id === book.author)?.name.toLowerCase().includes(searchQuery)
-                    book.element.style.display = isVisible ? 'inline-block' : 'none'
+                    book.element.style.display = isVisible ? 'inline' : 'none'
                 })
             }
 

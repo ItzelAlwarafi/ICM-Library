@@ -5,7 +5,7 @@ const cors = require('cors')
 const authorsControllers = require('./controllers/authorsController')
 const booksControllers= require('./controllers/booksController')
 const clientsControllers= require('./controllers/clientController')
-
+const bwdbooksControllers = require('./controllers/bwdBookController')
 
 const app = express()
 
@@ -44,3 +44,11 @@ app.get('/clients/:name',clientsControllers.getClientByName)
 app.post('/client', clientsControllers.createClient)
 app.put('/clients/:id',clientsControllers. updateClient)
 app.delete('/clients/:id', clientsControllers.deleteClient)
+
+//borrowed Books 
+app.post('/borrowed/:id', bwdbooksControllers.findBorrowedBooksbyId)
+app.delete('/borrowed',bwdbooksControllers. deleteAllBorrowedBooks)
+app.get('/borrowed',bwdbooksControllers.getAllBorrowedBooks)
+app.post('/borrowed', bwdbooksControllers. createBorrowedBooks)
+app.put('/borrowed/:id',bwdbooksControllers. updateBorrowedBooks)
+app.delete('/borrowed/:id', bwdbooksControllers.deleteBorrowedBook)
