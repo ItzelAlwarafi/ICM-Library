@@ -12,6 +12,11 @@ JavaScript
 HTML
 CSS
 
+## Goals:
+- Have full CRUD functionallity in the front end 
+- create HTML elements from JS 
+
+
 ## Getting Started 
 
 http://127.0.0.1:5500/client/index.html 
