@@ -16,6 +16,9 @@ CSS
 
 http://127.0.0.1:5500/client/index.html
 
+![alt text](./images/Screenshot 2024-02-23 at 12.33.17 AM.png)
+
+
 ## ERD/ WIREFRAME 
 ![alt text](./ERD/ERD.png)
 ![alt text](./ERD/WF1.png)
@@ -24,8 +27,9 @@ http://127.0.0.1:5500/client/index.html
 ![alt text](./ERD/WF4.png)
 
 
+
 ## Next Steps : 
 I planned to keep working on this application to one day offer it to the Mosque so they can actually use it. 
-
+ 
 ### Sources : 
 https://www.youtube.com/watch?v=TlP5WIxVirU
