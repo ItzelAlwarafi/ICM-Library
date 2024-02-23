@@ -57,112 +57,112 @@ function getBorrowedBooks (){
     fetch('http://localhost:3001/borrowed')
     .then(response => {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error('Network response was not ok')
       }
-      return response.json();
+      return response.json()
     })
     .then(borrowedBooks => {
-      console.log('Borrowed books fetched:', borrowedBooks);
+      console.log('Borrowed books fetched:', borrowedBooks)
   
       borrowedBooks.forEach(borrowedBook => {
-        const memberId = borrowedBook.member;
+        const memberId = borrowedBook.member
   
         fetch(`http://localhost:3001/clients`)
           .then(response => {
             if (!response.ok) {
-              throw new Error('Network response was not ok');
+              throw new Error('Network response was not ok')
             }
-            return response.json();
+            return response.json()
           })
           .then(fetchMembers => {
-            const member = fetchMembers.find(member => member._id === memberId);
-            console.log('Member:', member);
+            const member = fetchMembers.find(member => member._id === memberId)
+            console.log('Member:', member)
   
-            const bookIds = borrowedBook.books_borrowed;
+            const bookIds = borrowedBook.books_borrowed
   
             fetch(`http://localhost:3001/books`)
               .then(response => {
                 if (!response.ok) {
-                  throw new Error('Network response was not ok');
+                  throw new Error('Network response was not ok')
                 }
-                return response.json();
+                return response.json()
               })
               .then(fetchBooks => {
-                const books = fetchBooks.filter(book => bookIds.includes(book._id));
-                console.log('Books:', books);
+                const books = fetchBooks.filter(book => bookIds.includes(book._id))
+                console.log('Books:', books)
   
                 const searchInput = document.querySelector('#searchBar')
                 searchInput.addEventListener('input', e => {
-                  const searchQuery = e.target.value.trim().toLowerCase();
-                  filterBooks(books, member, searchQuery);
-                });
+                  const searchQuery = e.target.value.trim().toLowerCase()
+                  filterBooks(books, member, searchQuery)
+                })
   
                 books.forEach(book => {
-                  const bookElement = document.createElement('div');
-                  bookElement.classList.add('book');
-                  bookElement.id = book._id; // Set book ID
+                  const bookElement = document.createElement('div')
+                  bookElement.classList.add('book')
+                  bookElement.id = book._id
   
-                  const title = document.createElement('h2');
-                  title.textContent = book.title;
-                  title.id = "title";
+                  const title = document.createElement('h2')
+                  title.textContent = book.title
+                  title.id = "title"
   
-                  const imagediv = document.createElement('div');
-                  imagediv.id = 'bookpic';
+                  const imagediv = document.createElement('div')
+                  imagediv.id = 'bookpic'
   
-                  const img = document.createElement('img');
-                  img.src = book.img;
-                  img.id = 'img';
+                  const img = document.createElement('img')
+                  img.src = book.img
+                  img.id = 'img'
   
-                  const infodiv = document.createElement('div');
-                  infodiv.id = 'bookinfo';
+                  const infodiv = document.createElement('div')
+                  infodiv.id = 'bookinfo'
   
-                  const memberName = document.createElement('p');
-                  memberName.textContent = `Member Name: ${member.name}`;
+                  const memberName = document.createElement('p')
+                  memberName.textContent = `Member Name: ${member.name}`
   
-                  const phoneNumber = document.createElement('p');
-                  phoneNumber.textContent = `Phone Number: ${member.phone}`;
+                  const phoneNumber = document.createElement('p')
+                  phoneNumber.textContent = `Phone Number: ${member.phone}`
   
-                  const email = document.createElement('p');
-                  email.textContent = `Email: ${member.email}`;
+                  const email = document.createElement('p')
+                  email.textContent = `Email: ${member.email}`
   
-                  const checkOutDate = document.createElement('p');
-                  checkOutDate.textContent = `Check-Out Date: ${borrowedBook.date_loanOut}`;
+                  const checkOutDate = document.createElement('p')
+                  checkOutDate.textContent = `Check-Out Date: ${borrowedBook.date_loanOut}`
   
-                  const returnDate = document.createElement('p');
-                  returnDate.textContent = `Return Date: ${borrowedBook.date_return}`;
+                  const returnDate = document.createElement('p')
+                  returnDate.textContent = `Return Date: ${borrowedBook.date_return}`
   
-                  // Append elements to the book container
-                  infodiv.appendChild(title);
-                  infodiv.appendChild(memberName);
-                  infodiv.appendChild(phoneNumber);
-                  infodiv.appendChild(email);
-                  infodiv.appendChild(checkOutDate);
-                  infodiv.appendChild(returnDate);
-                  imagediv.appendChild(img);
-                  bookElement.appendChild(infodiv);
-                  bookElement.appendChild(imagediv);
-                  bookElements.appendChild(bookElement);
+            
+                  infodiv.appendChild(title)
+                  infodiv.appendChild(memberName)
+                  infodiv.appendChild(phoneNumber)
+                  infodiv.appendChild(email)
+                  infodiv.appendChild(checkOutDate)
+                  infodiv.appendChild(returnDate)
+                  imagediv.appendChild(img)
+                  bookElement.appendChild(infodiv)
+                  bookElement.appendChild(imagediv)
+                  bookElements.appendChild(bookElement)
                 });
               })
               .catch(error => {
-                console.error('Error fetching or processing books:', error);
+                console.error('Error fetching or processing books:', error)
               });
           })
           .catch(error => {
-            console.error('Error fetching or processing members:', error);
+            console.error('Error fetching or processing members:', error)
           });
       });
     })
     .catch(error => {
-      console.error('Error fetching or processing borrowed books:', error);
+      console.error('Error fetching or processing borrowed books:', error)
     });
   
   function filterBooks(books, member, searchQuery) {
     books.forEach(book => {
-      const isVisible = member.name.toLowerCase().includes(searchQuery);
-      const bookElement = document.getElementById(book._id); // Get book element by ID
-      bookElement.style.display = isVisible ? 'block' : 'none';
-    });
+      const isVisible = member.name.toLowerCase().includes(searchQuery)
+      const bookElement = document.getElementById(book._id)
+      bookElement.style.display = isVisible ? 'block' : 'none'
+    })
   }
   
 

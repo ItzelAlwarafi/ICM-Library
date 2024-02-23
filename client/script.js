@@ -30,29 +30,29 @@ fetch('http://localhost:3001/books')
     fetch('http://localhost:3001/borrowed')
     .then(response => {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error('Network response was not ok')
       }
-      return response.json();
+      return response.json()
     })
     .then(borrowedBooks => {
-      console.log('Borrowed books fetched:', borrowedBooks); // Log the fetched borrowed books
+      console.log('Borrowed books fetched:', borrowedBooks)
       
       // Initialize a variable to store the total number of borrowed books
-      let totalBorrowedBooks = 0;
+      let totalBorrowedBooks = 0
     
       // Iterate over each borrowed book
       borrowedBooks.forEach(loan => {
         // Add the number of books borrowed in this loan to the total count
-        totalBorrowedBooks += loan.books_borrowed.length;
+        totalBorrowedBooks += loan.books_borrowed.length
       });
     
       // Display the total number of borrowed books
-      console.log('Total number of borrowed books:', totalBorrowedBooks);
+      console.log('Total number of borrowed books:', totalBorrowedBooks)
 
       document.getElementById('bookborrowed').innerText = totalBorrowedBooks
     })
     .catch(error => {
-      console.error('Error fetching or processing borrowed books:', error);
+      console.error('Error fetching or processing borrowed books:', error)
     });
     
     
