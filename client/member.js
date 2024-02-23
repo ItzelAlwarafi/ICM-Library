@@ -1,96 +1,169 @@
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Fetch data from the first route
-    const fetchBooks = fetch('http://localhost:3001/books')
-        .then(response => response.json())
-
-    // Fetch data from the second route
-    const fetchAuthors = fetch('http://localhost:3001/authors')
-        .then(response => response.json())
-
-    // Wait for both requests to resolve
-    Promise.all([fetchBooks, fetchAuthors])
-        .then(([booksData, authorsData]) => {
-            // Store books data
-            const books = booksData
-
-            // Add event listener for search input
-            const searchInput = document.querySelector('#searchBar')
-            searchInput.addEventListener('input', e => {
-                const searchQuery = e.target.value.trim().toLowerCase() 
-                filterBooks(searchQuery)
-            });
-
-            // Display books initially
-            const groupContainer = document.getElementById('booksContainer')
-            books.forEach(book => {
-                // Creating HTML elements
-                const bookDiv = document.createElement('div')
-                const image = document.createElement('img')
-                const title = document.createElement('ul')
-                
-                
-                // Assigning data to the HTML elements
-                title.textContent = ` ${book.title}`
-                image.src = book.img;
-               
-
-                // Append HTML elements to the container
-                bookDiv.appendChild(title)
-                bookDiv.appendChild(image)
-                
-                
-
-                // Append the book container to the group container
-                bookDiv.classList.add('book') // Add a class for styling
-                groupContainer.appendChild(bookDiv)
-             
-
-                
-                book.element = bookDiv
-                title.id = 'title'
-              
-                
-            });
-
-            // Function to filter books based on search query
-            function filterBooks(searchQuery) {
-                books.forEach(book => {
-                    const isVisible = book.title.toLowerCase().includes(searchQuery)
-                    book.element.style.display = isVisible ? 'block' : 'none'
-                })
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-});
+const NewMemberCont = document.getElementById('CreateNewMemberContainer')
+const createMembBtn =document.querySelector('#createMembbtn')
+const searMembBtn =document.querySelector('#searchMember')
+const bookElements = document.querySelector('#booksContainer')
 
 
 
-const nameBox  = document.getElementById('nameBox')
-const phoneBox =document.getElementById('phoneNumBox')
-const emailBox =document.getElementById("emailBox")
-const submitButton =document.getElementById('createMemberbtn')
+createMembBtn.addEventListener('click', async (event) => {
+event.preventDefault()
+console.log('hello')
+NewMemberCont.style.display ='flex'
+bookElements.style.display ='none'
+CreateNewMember()
 
-submitButton.addEventListener('click', async()=>{
-    const  name=nameBox.value.toLowerCase()
-    const  phone_number=phoneBox.value.toLowerCase()
-    const  email=emailBox.value.toLowerCase()
-   
-
-    let data={
-        name,
-        phone_number,
-        email,
-       
-    }
-
-    let response= await axios.post('http://localhost:3001/client', data )
-    console.log(response)
-
-
+})
+searMembBtn.addEventListener('click', async (event) =>{
+    event.preventDefault()
+    console.log('hello')
+    NewMemberCont.style.display ='none'
+    bookElements.style.display ='flex'
+    getBorrowedBooks ()
 })
 
 
+
+function CreateNewMember(){
+  
+
+    const nameBox  = document.getElementById('nameBox')
+    const phoneBox =document.getElementById('phoneNumBox')
+    const emailBox =document.getElementById("emailBox")
+    const submitButton =document.getElementById('createMemberbtn')
+    
+    submitButton.addEventListener('click', async()=>{
+        const  name=nameBox.value.toLowerCase()
+        const  phone_number=phoneBox.value.toLowerCase()
+        const  email=emailBox.value.toLowerCase()
+       
+    
+        let data={
+            name,
+            phone_number,
+            email,
+           
+        }
+    
+        let response= await axios.post('http://localhost:3001/client', data )
+        console.log(response)
+    
+    
+    })
+}
+
+
+function getBorrowedBooks (){
+    fetch('http://localhost:3001/borrowed')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(borrowedBooks => {
+      console.log('Borrowed books fetched:', borrowedBooks);
+  
+      borrowedBooks.forEach(borrowedBook => {
+        const memberId = borrowedBook.member;
+  
+        fetch(`http://localhost:3001/clients`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(fetchMembers => {
+            const member = fetchMembers.find(member => member._id === memberId);
+            console.log('Member:', member);
+  
+            const bookIds = borrowedBook.books_borrowed;
+  
+            fetch(`http://localhost:3001/books`)
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                return response.json();
+              })
+              .then(fetchBooks => {
+                const books = fetchBooks.filter(book => bookIds.includes(book._id));
+                console.log('Books:', books);
+  
+                const searchInput = document.querySelector('#searchBar')
+                searchInput.addEventListener('input', e => {
+                  const searchQuery = e.target.value.trim().toLowerCase();
+                  filterBooks(books, member, searchQuery);
+                });
+  
+                books.forEach(book => {
+                  const bookElement = document.createElement('div');
+                  bookElement.classList.add('book');
+                  bookElement.id = book._id; // Set book ID
+  
+                  const title = document.createElement('h2');
+                  title.textContent = book.title;
+                  title.id = "title";
+  
+                  const imagediv = document.createElement('div');
+                  imagediv.id = 'bookpic';
+  
+                  const img = document.createElement('img');
+                  img.src = book.img;
+                  img.id = 'img';
+  
+                  const infodiv = document.createElement('div');
+                  infodiv.id = 'bookinfo';
+  
+                  const memberName = document.createElement('p');
+                  memberName.textContent = `Member Name: ${member.name}`;
+  
+                  const phoneNumber = document.createElement('p');
+                  phoneNumber.textContent = `Phone Number: ${member.phone}`;
+  
+                  const email = document.createElement('p');
+                  email.textContent = `Email: ${member.email}`;
+  
+                  const checkOutDate = document.createElement('p');
+                  checkOutDate.textContent = `Check-Out Date: ${borrowedBook.date_loanOut}`;
+  
+                  const returnDate = document.createElement('p');
+                  returnDate.textContent = `Return Date: ${borrowedBook.date_return}`;
+  
+                  // Append elements to the book container
+                  infodiv.appendChild(title);
+                  infodiv.appendChild(memberName);
+                  infodiv.appendChild(phoneNumber);
+                  infodiv.appendChild(email);
+                  infodiv.appendChild(checkOutDate);
+                  infodiv.appendChild(returnDate);
+                  imagediv.appendChild(img);
+                  bookElement.appendChild(infodiv);
+                  bookElement.appendChild(imagediv);
+                  bookElements.appendChild(bookElement);
+                });
+              })
+              .catch(error => {
+                console.error('Error fetching or processing books:', error);
+              });
+          })
+          .catch(error => {
+            console.error('Error fetching or processing members:', error);
+          });
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching or processing borrowed books:', error);
+    });
+  
+  function filterBooks(books, member, searchQuery) {
+    books.forEach(book => {
+      const isVisible = member.name.toLowerCase().includes(searchQuery);
+      const bookElement = document.getElementById(book._id); // Get book element by ID
+      bookElement.style.display = isVisible ? 'block' : 'none';
+    });
+  }
+  
+
+}

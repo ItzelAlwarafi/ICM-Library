@@ -97,6 +97,14 @@ body {
 
 
 }
+#logo{
+  width: 20em;
+  height: 10em;
+  position: absolute; 
+  top: 0; 
+  left: 0;
+ 
+}
 
 #img1{
   width: auto;
@@ -108,8 +116,7 @@ body {
 #title1{
   font-size: 18px;
   font-weight: bold;
-  
- 
+
 }
 
 
@@ -132,7 +139,14 @@ article {
 }
 ul{
   margin: 0;
-  font-size: 15px;
+  font-size: 10px;
+  white-space: nowrap; /* Prevent text from wrapping onto multiple lines */
+  text-overflow: ellipsis;
+ 
+ }
+ ul:hover{
+  margin: 0;
+  font-size: 20px;
   white-space: nowrap; /* Prevent text from wrapping onto multiple lines */
   text-overflow: ellipsis;
  

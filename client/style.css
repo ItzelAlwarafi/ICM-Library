@@ -91,10 +91,18 @@ body {
     display: flex;
     flex-direction: row;
   }
+  #logo{
+    width: 20em;
+    height: 10em;
+    position: absolute; 
+    top: 0; 
+    left: 0;
+   
+  }
 #menulinks> a{
     margin-left: 1em;
     height: 130px;
-    width: 170px;
+    width: 200px;
     
     background-image: linear-gradient(to bottom, #d3d0bb, #dfd7a0);
     color:#482307;
@@ -121,7 +129,7 @@ body {
 #bookStatus> ul{
     margin-left: 1em;
     height: 100px;
-    width: 130px;
+    width: 160px;
     background-image: linear-gradient(to bottom, #d3d0bb, #dfd7a0);
     color:#482307;
     font-weight: bolder;
@@ -131,7 +139,24 @@ body {
     align-items:center; 
     margin-right: 3em;
     font-size:20px;
-    
+    white-space: nowrap;
+   
+
+}
+
+#bookInStock{
+
+  font-size: 70px;
+  margin-top: 0;
+  opacity: .5;
+
+
+}
+
+#bookborrowed{
+  font-size: 70px;
+  margin-top: 0;
+  opacity: .5;
 
 }
 #bookStatus> ul:hover{

@@ -76,24 +76,31 @@ header> #searchbtn:hover{
 }
 
 
-img{
-  width: auto;
-  height:100px;
+#img{
+  width: 10em;
+  height: 12em;
   border: 1px black;
-  margin-left: 2em;
+  margin-left: 3em;
 
   
 }
 #title{
-  font: size 15px;
+  font-size :20px;
   font-weight: bold;
   margin: 1;
+
  
  
 }
+
+
+p{
+  font-size: 15px;
+  margin: 0;
+}
 #CreateNewMemberContainer{
  margin-top: 2em;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
  flex-direction: column;
@@ -105,17 +112,36 @@ img{
   height: 2px;
 
 }
-.book{
-  display: flex;
-  flex-direction:column;
-  justify-content: center;
-  align-items: center;
+#bookpic{
+  display:flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+#logo{
+  width: 20em;
+  height: 10em;
+  position: absolute; 
+  top: 0; 
+  left: 0;
+ 
 }
 #booksContainer{
-  width: 50vh;
-  height: fit-content;
-
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
 }
+.book{
+  display: flex;
+  flex-direction: row;
+  margin-top: 1em;
+}
+#bookinfo{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  
+}
+
 .CreateMembr{
   width: 35em;
   height: 2em;
