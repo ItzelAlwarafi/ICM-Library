@@ -14,12 +14,13 @@ CSS
 
 ## Getting Started 
 
-http://127.0.0.1:5500/client/index.html
+http://127.0.0.1:5500/client/index.html 
 
-![alt text](./images/Screenshot 2024-02-23 at 12.33.17 AM.png)
 
+![alt text](./images/Screenshot.png)
 
 ## ERD/ WIREFRAME 
+
 ![alt text](./ERD/ERD.png)
 ![alt text](./ERD/WF1.png)
 ![alt text](./ERD/WF2.png)
